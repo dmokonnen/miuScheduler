@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Faculty</title>
+    <title>Faculty Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-<h1>Faculty page</h1>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome !</h1>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+<!--    <form th:action="@{/admin/addfaculty}" method="get">-->
+<!--        <button class="btn btn-md btn-block" type="Submit">Add Faculties</button>-->
+<!--    </form>-->
+<!--    <form th:action="@{/admin/addstudent}" method="get">-->
+<!--        <button class="btn btn-md btn-block" type="Submit">Add Students</button>-->
+<!--    </form>-->
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+
+    <div class="container">
+
+        <form th:action="@{/logout}" method="get">
+            <button class="btn btn-md btn-danger btn-block" name="registration"
+                    type="Submit">Logout
+            </button>
+        </form>
+
+        <div class="panel-group" style="margin-top:40px">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span th:utext="${userName}"></span>
+                </div>
+                <div class="panel-body">
+                    <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"
+                         alt="Beer"/>
+                </div>
+                <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+
+
 </body>
 </html>
