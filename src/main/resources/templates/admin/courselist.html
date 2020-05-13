@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta  http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
-    <title>Entries</title>
+    <title>Courses</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -14,6 +14,11 @@
     <div class="container">
         <h1>List of Courses!</h1>
     </div>
+    <div class="container">
+        <br>
+        <a href="/admin/home">Home</a>
+    </div>
+
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
 
@@ -32,9 +37,12 @@
             <th scope="col">Course Title</th>
             <th scope="col">Course Description</th>
             <th scope="col">Credit Hour</th>
+            <th scope="col">Prerequisites</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
-<!--            <th scope="col">Prerequisites</th>-->
+
+            
+
         </tr>
         </thead>
         <tbody>
@@ -44,10 +52,12 @@
             <td><span th:text="${course.courseTitle}"></span></td>
             <td><span th:text="${course.courseDescription}"></span></td>
             <td><span th:text="${course.creditHour}"></span></td>
+            <td><span th:text="${course?.prerequisites?.courseNumber+' '+course?.prerequisites?.courseTitle}"></span></td>
             <td> <a th:href="@{/admin/editcourse/{id} (id=${course.id})}"  class="btn btn-primary" ><i class="fas fa-user-edit ml-2"></i> </a></td>
             <td> <a th:href="@{/admin/deletecourse/{id} (id=${course.id})}"  class="btn btn-primary" ><i class="fas fa-user-times ml-2"></i> </a></td>
 
-            <!--            <td th:if=""><span th:text="${course.prerequisites.courseNumber}"></span></td>-->
+            
+
         </tr>
         </tbody>
     </table>

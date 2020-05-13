@@ -1,15 +1,14 @@
 package edu.miu.cs425.mumsched.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,13 +16,33 @@ import java.util.Set;
  * @2020
  */
 
-
-//@Entity
+@Data
+//@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 //@DiscriminatorValue("faculty")
-public class Faculty extends User{
-    public Faculty(Integer id, @Length(min = 5, message = "*Your user name must have at least 5 characters") @NotEmpty(message = "*Please provide a user name") String userName, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, Boolean active, Set<Role> roles) {
-        super(id, userName, email, password, name, lastName, active, roles);
-    }
+public class Faculty{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private int facultyID;
+    private String firstName;
+    private String lastName;
+    private String userName;
+//    private Gender gender;
+    @Column(unique = true)
+    private String email;
+    @OneToOne
+    private User user;
+    @OneToMany(mappedBy = "faculty")
+    private Set<Section> sections;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "faculty_courses",
+            joinColumns = {@JoinColumn(name = "faculty_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")})
+    private Set<Course> preferredCourses;
+
     public Faculty() {
+        this.preferredCourses=new HashSet<>();
     }
 }
