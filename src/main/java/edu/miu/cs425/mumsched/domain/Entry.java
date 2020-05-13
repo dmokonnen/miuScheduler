@@ -29,6 +29,8 @@ public class Entry {
     private LocalDate endDate;
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true,mappedBy = "entry")
     private Set<Block> blocksList = new HashSet<>();
+    @OneToOne
+    private Schedule schedule;
 //    @OneToMany
 //    private List<Student> students= new ArrayList<>();
     public Entry() {

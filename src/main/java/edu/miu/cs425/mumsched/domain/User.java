@@ -25,12 +25,12 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
 
-    @Column(name = "user_name")
+    @Column(name = "user_name",unique = true)
     @Length(min = 5, message = "*Your user name must have at least 5 characters")
     @NotEmpty(message = "*Please provide a user name")
     private String userName;
 
-    @Column(name = "email")
+    @Column(name = "email",unique = true)
     @Email(message = "*Please provide a valid Email")
     @NotEmpty(message = "*Please provide an email")
     private String email;
