@@ -14,17 +14,53 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Welcome!</h1>
+        <h1>Welcome to MIU Admin Page!</h1>
     </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
 
-    <form th:action="@{/admin/addfaculty}" method="get">
-        <button class="btn btn-md btn-block" type="Submit">Add Faculties</button>
-    </form>
-    <form th:action="@{/admin/addstudent}" method="get">
-        <button class="btn btn-md btn-block" type="Submit">Add Students</button>
-    </form>
+    <h3>Manage Users</h3>
+    <ul class="list-group">
+        <li class="list-group-item" >
+            <form th:action="@{/admin/addfaculty}" method="get">
+                <button class="btn btn-md" type="Submit">Add Faculties</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/admin/addstudent}" method="get">
+                <button class="btn btn-md" type="Submit">Add Students</button>
+            </form>
+        </li>
+    </ul>
+    <h3>Manage Courses</h3>
+    <ul class="list-group">
+        <li class="list-group-item">Courses</li>
+    </ul>
+    <h3>Manage Blocks</h3>
+    <ul class="list-group">
+        <li class="list-group-item">Blocks</li>
+    </ul>
+    <h3>Manage Entries</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <form th:action="@{/admin/entry}" method="get">
+                <button class="btn btn-md" type="Submit">Add Entry</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/admin/entries}" method="get">
+                <button class="btn btn-md" type="Submit">View Entries</button>
+            </form>
+        </li>
+    </ul>
+    <h3>Manage Sections</h3>
+    <ul class="list-group">
+        <li class="list-group-item">Sections</li>
+    </ul>
+    <h4>Generate Report</h4>
+    <ul class="list-group">
+        <li class="list-group-item">Reports</li>
+    </ul>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6">
 

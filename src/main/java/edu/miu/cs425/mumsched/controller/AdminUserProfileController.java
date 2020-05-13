@@ -1,8 +1,11 @@
 package edu.miu.cs425.mumsched.controller;
 
+import edu.miu.cs425.mumsched.domain.Faculty;
+import edu.miu.cs425.mumsched.domain.Student;
 import edu.miu.cs425.mumsched.domain.User;
 import edu.miu.cs425.mumsched.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,9 +25,13 @@ import javax.validation.Valid;
 @RequestMapping(value = "/admin")
 public class AdminUserProfileController {
 
+
+//    @Qualifier("faculty")
+//    @Autowired
+//    private UserService facultyService;
+//    @Qualifier("student")
     @Autowired
     private UserService userService;
-
     @GetMapping(value="/addstudent")
     public ModelAndView addStudent(){
         ModelAndView modelAndView = new ModelAndView();

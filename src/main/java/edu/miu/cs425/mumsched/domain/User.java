@@ -12,11 +12,12 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE) @DiscriminatorColumn(name="user_type",
+        discriminatorType=DiscriminatorType.STRING)
 public class User {
 
     @Id

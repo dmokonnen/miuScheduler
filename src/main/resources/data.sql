@@ -17,14 +17,14 @@ LIMIT 0, 50000
 
 -- Date: 2020-05-12 01:22
 */
-REPLACE INTO `user_role` (`user_id`,`role_id`) VALUES (6,1);
-REPLACE INTO `user_role` (`user_id`,`role_id`) VALUES (8,2);
-REPLACE INTO `user_role` (`user_id`,`role_id`) VALUES (9,3);
+-- REPLACE INTO `user_role` (`user_id`,`role_id`) VALUES (6,1);
+-- REPLACE INTO `user_role` (`user_id`,`role_id`) VALUES (8,2);
+-- REPLACE INTO `user_role` (`user_id`,`role_id`) VALUES (9,3);
 /*
 -- Query: SELECT * FROM mumscheddb.hibernate_sequence
 LIMIT 0, 50000
 
 -- Date: 2020-05-12 01:27
 */
-REPLACE INTO `hibernate_sequence` (`next_val`) VALUES (10);
-REPLACE INTO `hibernate_sequence` (`next_val`) VALUES (10);
+-- INSERT INTO `hibernate_sequence` (`next_val`) VALUES (10);
+-- INSERT INTO `hibernate_sequence` (`next_val`) VALUES (10);
