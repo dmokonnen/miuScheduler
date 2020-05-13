@@ -21,7 +21,8 @@
 <div class="col-lg-6 col-sm-6 col-md-6">
     <form method="get" action="/admin/block">
         <button type="submit" class="btn btn-primary fas fa-user-plus ml-2">Add Another Block</button>
-
+        <a href="/admin/home" class="btn btn-primary"><span
+                class="fas fa-user-plus ml-2"> Home</span></a>
     </form>
     <table class="table table-hover table-bordered">
         <thead>
@@ -42,6 +43,7 @@
             <td><span th:text="${block.endDate}"></span></td>
             <td> <a th:href="@{/admin/edit/{id} (id=${block.blockID})}"  class="btn btn-primary" ><i class="fas fa-user-edit ml-2"></i> </a></td>
             <td> <a th:href="@{/admin/delete/{id} (id=${block.blockID})}"  class="btn btn-primary" ><i class="fas fa-user-times ml-2"></i> </a></td>
+
         </tr>
         </tbody>
     </table>

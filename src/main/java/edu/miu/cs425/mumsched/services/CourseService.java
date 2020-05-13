@@ -1,5 +1,6 @@
 package edu.miu.cs425.mumsched.services;
 
+import edu.miu.cs425.mumsched.domain.Block;
 import edu.miu.cs425.mumsched.domain.Course;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface CourseService {
     List<Course> getAllCourses();
     Course findCourseById(Long id);
     Course deleteCourse(String courseNumber);
+    void delete(Course course);
 }

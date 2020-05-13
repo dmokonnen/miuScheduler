@@ -72,12 +72,12 @@ public class BlockController {
         return "redirect:/admin/blocks";
     }
     @GetMapping("delete/{id}")
-    public String deleteStudent(@PathVariable("id") long id, Model model) {
+    public String deleteBlock(@PathVariable("id") long id, Model model) {
         Block block = blockService.getBlockByBlockID(id);
                 //.orElseThrow(()-> new IllegalArgumentException("Invalid student Id:" + id));
 
         blockService.delete(block);
-        model.addAttribute("students", blockService.getAllBlock());
+        model.addAttribute("block", blockService.getAllBlock());
         return "redirect:/admin/blocks";
     }
 

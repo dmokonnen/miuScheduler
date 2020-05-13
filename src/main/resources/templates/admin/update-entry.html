@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Update Entry Form</h1>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <form action="#" th:action="@{/admin/updateentry/{id}(id=${entry.entryID})}" th:object="${entry}" method="post">
+        <div class="row">
+
+
+            <div class="form-group col-md-8">
+                <label for="entryName" class="col-form-label">entryName</label> <input  type="text" th:field="*{entryName}" class="form-control" id="entryName" placeholder="entryName"> <span th:if="${#fields.hasErrors('entryName')}" th:errors="*{entryName}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="FPPNum" class="col-form-label">FPPNum</label> <input type="text" th:field="*{FPPNum}" class="form-control" id="FPPNum" placeholder="FPPNum"> <span th:if="${#fields.hasErrors('FPPNum')}" th:errors="*{FPPNum}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="MPPNum" class="col-form-label">MPPNum</label> <input  type="text" th:field="*{MPPNum}" class="form-control" id="MPPNum" placeholder="MPPNum"> <span th:if="${#fields.hasErrors('MPPNum')}" th:errors="*{MPPNum}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="startDate" class="col-form-label">startDate</label> <input  type="text" th:field="*{startDate}" class="form-control" id="startDate" placeholder="startDate"> <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="endDate" class="col-form-label">endDate</label> <input  type="text" th:field="*{endDate}" class="form-control" id="endDate" placeholder="endDate"> <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-8">
+                <input type="submit" class="btn btn-primary" value="Update Entry">
+                <a href="/admin/entries" class="btn btn-primary"><span
+                        class="fas fa-user-plus ml-2"> Back</span></a>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+</body>
+</html>
