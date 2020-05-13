@@ -26,7 +26,7 @@
             <th scope="col">Course Title</th>
             <th scope="col">Course Description</th>
             <th scope="col">Credit Hour</th>
-<!--            <th scope="col">Prerequisites</th>-->
+            <th scope="col">Prerequisites</th>
         </tr>
         </thead>
         <tbody>
@@ -36,7 +36,7 @@
             <td><span th:text="${course.courseTitle}"></span></td>
             <td><span th:text="${course.courseDescription}"></span></td>
             <td><span th:text="${course.creditHour}"></span></td>
-<!--            <td th:if=""><span th:text="${course.prerequisites.courseNumber}"></span></td>-->
+            <td><span th:text="${course?.prerequisites?.courseNumber+' '+course?.prerequisites?.courseTitle}"></span></td>
         </tr>
         </tbody>
     </table>
