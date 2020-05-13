@@ -17,11 +17,10 @@
         <h1>Welcome to MIU Admin Page!</h1>
     </div>
 </div>
-<div class="col-lg-3 col-sm-3 col-md-3">
-
-    <h3>Manage Users</h3>
-    <ul class="list-group">
-        <li class="list-group-item" >
+<div class="col-lg-2 col-sm-2 col-md-2">
+    <h4>Manage Users</h4>
+    <ul class="list-inline">
+        <li  class="list-group-item">
             <form th:action="@{/admin/addfaculty}" method="get">
                 <button class="btn btn-md" type="Submit">Add Faculties</button>
             </form>
@@ -32,16 +31,25 @@
             </form>
         </li>
     </ul>
-    <h3>Manage Courses</h3>
+    <h4>Manage Courses</h4>
     <ul class="list-group">
         <li class="list-group-item">Courses</li>
     </ul>
-    <h3>Manage Blocks</h3>
-    <ul class="list-group">
-        <li class="list-group-item">Blocks</li>
+    <h4>Manage Blocks</h4>
+    <ul class="list-inline">
+        <li class="list-group-item">
+            <form th:action="@{/admin/block}" method="get">
+                <button class="btn btn-md" type="Submit">Add Block</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/admin/blocks}" method="get">
+                <button class="btn btn-md" type="Submit">View Blocks</button>
+            </form>
+        </li>
     </ul>
-    <h3>Manage Entries</h3>
-    <ul class="list-group">
+    <h4>Manage Entries</h4>
+    <ul class="list-inline">
         <li class="list-group-item">
             <form th:action="@{/admin/entry}" method="get">
                 <button class="btn btn-md" type="Submit">Add Entry</button>
@@ -53,7 +61,7 @@
             </form>
         </li>
     </ul>
-    <h3>Manage Sections</h3>
+    <h4>Manage Sections</h4>
     <ul class="list-group">
         <li class="list-group-item">Sections</li>
     </ul>
@@ -62,7 +70,7 @@
         <li class="list-group-item">Reports</li>
     </ul>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="col-lg-7 col-md-7 col-sm-7">
 
     <div class="container">
 
@@ -79,7 +87,7 @@
                 </div>
                 <div class="panel-body">
                     <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"
-                         alt="Beer"/>
+                         alt="MIU"/>
                 </div>
                 <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
             </div>
