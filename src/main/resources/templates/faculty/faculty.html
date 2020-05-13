@@ -14,17 +14,24 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Welcome !</h1>
+        <h1>Welcome to MIU Faculty Page!</h1>
     </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
 
-<!--    <form th:action="@{/admin/addfaculty}" method="get">-->
-<!--        <button class="btn btn-md btn-block" type="Submit">Add Faculties</button>-->
-<!--    </form>-->
-<!--    <form th:action="@{/admin/addstudent}" method="get">-->
-<!--        <button class="btn btn-md btn-block" type="Submit">Add Students</button>-->
-<!--    </form>-->
+    <h4>Manage Users</h4>
+    <ul class="list-inline">
+        <li  class="list-group-item">
+            <form th:action="@{/faculty/courses}" method="get">
+                <button class="btn btn-md" type="Submit">view courses</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/admin/addstudent}" method="get">
+                <button class="btn btn-md" type="Submit">view</button>
+            </form>
+        </li>
+    </ul>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-6">
 
@@ -42,7 +49,7 @@
                     <span th:utext="${userName}"></span>
                 </div>
                 <div class="panel-body">
-                    <img th:src="@{/static/images/logos.jpg}" class="img-responsive center-block" width="400" height="400"
+                    <img th:src="@{/static/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"
                          alt="Beer"/>
                 </div>
                 <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>

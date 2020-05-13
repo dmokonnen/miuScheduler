@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta  http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
-    <title>Entries</title>
+    <title>Courses</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,6 +13,11 @@
     <div class="container">
         <h1>List of Courses!</h1>
     </div>
+    <div class="container">
+        <br>
+        <a href="/admin/home">Home</a>
+    </div>
+
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
 
@@ -26,7 +31,7 @@
             <th scope="col">Course Title</th>
             <th scope="col">Course Description</th>
             <th scope="col">Credit Hour</th>
-<!--            <th scope="col">Prerequisites</th>-->
+            <th scope="col">Prerequisites</th>
         </tr>
         </thead>
         <tbody>
@@ -36,7 +41,7 @@
             <td><span th:text="${course.courseTitle}"></span></td>
             <td><span th:text="${course.courseDescription}"></span></td>
             <td><span th:text="${course.creditHour}"></span></td>
-<!--            <td th:if=""><span th:text="${course.prerequisites.courseNumber}"></span></td>-->
+            <td><span th:text="${course?.prerequisites?.courseNumber+' '+course?.prerequisites?.courseTitle}"></span></td>
         </tr>
         </tbody>
     </table>
