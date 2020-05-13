@@ -21,13 +21,13 @@
     <form action="#" th:action="@{/admin/update/{id}(id=${block.blockID})}" th:object="${block}" method="post">
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="blockName" class="col-form-label">blockName</label> <input class="form-control" type="text" th:field="*{blockName}" class="form-control" id="blockName" placeholder="blockName"> <span th:if="${#fields.hasErrors('blockName')}" th:errors="*{blockName}" class="text-danger"></span>
+                <label for="blockName" class="col-form-label">blockName</label> <input  type="text" th:field="*{blockName}" class="form-control" id="blockName" placeholder="blockName"> <span th:if="${#fields.hasErrors('blockName')}" th:errors="*{blockName}" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
-                <label for="startDate" class="col-form-label">startDate</label> <input class="form-control" type="text" th:field="*{startDate}" class="form-control" id="startDate" placeholder="startDate"> <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
+                <label for="startDate" class="col-form-label">startDate</label> <input  type="text" th:field="*{startDate}" class="form-control" id="startDate" placeholder="startDate"> <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
-                <label for="endDate" class="col-form-label">endDate</label> <input class="form-control" type="text" th:field="*{endDate}" class="form-control" id="endDate" placeholder="endDate"> <span th:if="${#fields.hasErrors('endDate')}" th:errors="endDate" class="text-danger"></span>
+                <label for="endDate" class="col-form-label">endDate</label> <input  type="text" th:field="*{endDate}" class="form-control" id="endDate" placeholder="endDate"> <span th:if="${#fields.hasErrors('endDate')}" th:errors="endDate" class="text-danger"></span>
             </div>
 
             <div class="form-group col-md-8">
