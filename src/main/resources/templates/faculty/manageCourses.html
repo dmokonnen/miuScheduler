@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Faculty Manage Course</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="jumbotron">
+    <div class="container">
+        <h2>Welcome to MIU Faculty Page! </h2>
+        <h3>Select your Course Preference </h3>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-md-3">
 
+</div>
+<div class="col-lg-6 col-sm-6 col-md-6">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Select your Course preferences
+            </div>
+            <div class="panel-body">
+                <form th:action="@{/faculty/addCourse}" th:object="${course}" method="post">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="course" class="col-sm-3">Selected Course: </label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="course" th:field="*{id}">
+                                    <option th:each="course : ${courses}"
+                                            th:value="${course.id}" th:text="${course.courseTitle}">
+                                    </option>
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <input id="btnAdd" class="btn btn-primary" type="submit" value="Add to Pref. list" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                    <tr>
+                        <th colspan="2">Preferred Courses</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="preferredCourse  : ${preferredCourses}" >
+                        <tr class="odd gradeX">
+                            <td th:text="${preferredCourse.courseNumber}"></td>
+                            <td th:text="${preferredCourse.courseTitle}"></td>
+                            <td>
+                                <a th:href="@{'/faculty/courseDelete/' + ${preferredCourse.id}}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
 </body>
 </html>

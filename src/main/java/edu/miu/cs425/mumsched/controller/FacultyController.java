@@ -11,12 +11,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -54,6 +52,21 @@ public class FacultyController {
         }
         return "redirect:/faculty/courses";
     }
+    @GetMapping("/courseDelete/{id}")
+    public String deletePreferredCourse(@PathVariable("id") Integer id) {
+        Faculty faculty = getLoggedInFaculty();
+        Set<Course> courses = faculty.getPreferredCourses();
+
+        Iterator<Course> it = courses.iterator();
+        while (it.hasNext()) {
+            Course course = it.next();
+            if (course.getId() == id) {
+                it.remove();
+            }
+        }
+        facultyService.save(faculty);
+        return "redirect:/faculty/courses";
+    }
     @GetMapping("/block")
     public String displayUnwantedBlocks(Model model) {
 //        List<BlockMonths> monthBlockList = MonthUtil.getMonths();
@@ -85,8 +98,7 @@ public class FacultyController {
     //To be fixed not email but user name
     public Faculty getLoggedInFaculty() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = auth.getName();
-        Faculty faculty = facultyService.findByEmail(email);
-        return faculty;
+        String userName = auth.getName();
+        return facultyService.findByUserName(userName);
     }
 }

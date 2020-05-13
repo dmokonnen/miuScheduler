@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface FacultyDao extends JpaRepository<Faculty,Integer> {
     Faculty getFacultyByEmail(String email);
+    Faculty findByUserName(String username);
     Faculty findByUser(User user);
     List<Faculty> findAllByUserIs(User user);
     List<Faculty> findAllByPreferredCoursesContains(Course course);

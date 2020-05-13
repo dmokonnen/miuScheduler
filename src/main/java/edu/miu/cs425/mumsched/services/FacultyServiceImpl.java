@@ -45,4 +45,9 @@ public class FacultyServiceImpl implements FacultyService {
     public List<Faculty> findAllByPreferredCoursesContains(Course course) {
         return facultyDao.findAllByPreferredCoursesContains(course);
     }
+
+    @Override
+    public Faculty findByUserName(String username) {
+        return facultyDao.findByUserName(username);
+    }
 }

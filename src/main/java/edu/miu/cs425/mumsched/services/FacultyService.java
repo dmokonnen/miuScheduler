@@ -12,4 +12,5 @@ public interface FacultyService {
     List<Faculty> findAll();
     Faculty findByEmail(String email);
     List<Faculty> findAllByPreferredCoursesContains(Course course);
+    Faculty findByUserName(String username);
 }

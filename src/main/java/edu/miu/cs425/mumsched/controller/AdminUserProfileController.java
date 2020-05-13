@@ -3,6 +3,8 @@ package edu.miu.cs425.mumsched.controller;
 import edu.miu.cs425.mumsched.domain.Faculty;
 import edu.miu.cs425.mumsched.domain.Student;
 import edu.miu.cs425.mumsched.domain.User;
+import edu.miu.cs425.mumsched.services.FacultyService;
+import edu.miu.cs425.mumsched.services.StudentService;
 import edu.miu.cs425.mumsched.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,6 +34,11 @@ public class AdminUserProfileController {
 //    @Qualifier("student")
     @Autowired
     private UserService userService;
+    @Autowired
+    private FacultyService facultyService;
+    @Autowired
+    private StudentService studentService;
+//    private static int universityId=10103;
     @GetMapping(value="/addstudent")
     public ModelAndView addStudent(){
         ModelAndView modelAndView = new ModelAndView();
@@ -54,6 +61,13 @@ public class AdminUserProfileController {
             modelAndView.setViewName("addStudent");
         } else {
             userService.saveUser(user,"STUDENT");
+            Student student = new Student();
+            student.setEmail(user.getEmail());
+            student.setFirstName(user.getName());
+            student.setLastName(user.getLastName());
+            student.setUser(user);
+//            faculty.setFacultyID(universityId++);
+            studentService.save(student);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("addStudent");
@@ -83,6 +97,13 @@ public class AdminUserProfileController {
             modelAndView.setViewName("addfaculty");
         } else {
             userService.saveUser(user,"FACULTY");
+            Faculty faculty = new Faculty();
+            faculty.setEmail(user.getEmail());
+            faculty.setFirstName(user.getName());
+            faculty.setLastName(user.getLastName());
+            faculty.setUser(user);
+//            faculty.setFacultyID(universityId++);
+            facultyService.save(faculty);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("addfaculty");

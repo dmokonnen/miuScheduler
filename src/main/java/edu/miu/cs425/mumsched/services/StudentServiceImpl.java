@@ -3,6 +3,7 @@ package edu.miu.cs425.mumsched.services;
 import edu.miu.cs425.mumsched.dao.StudentDao;
 import edu.miu.cs425.mumsched.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author Demisew Mokonnen
  * @2020
  */
+@Service
 public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentDao studentDao;

@@ -6,6 +6,9 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,7 +17,7 @@ import java.util.Set;
  */
 
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 //@DiscriminatorValue("faculty")
@@ -25,6 +28,7 @@ public class Faculty{
     private int facultyID;
     private String firstName;
     private String lastName;
+    private String userName;
 //    private Gender gender;
     @Column(unique = true)
     private String email;
@@ -37,4 +41,8 @@ public class Faculty{
             joinColumns = {@JoinColumn(name = "faculty_id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id")})
     private Set<Course> preferredCourses;
+
+    public Faculty() {
+        this.preferredCourses=new HashSet<>();
+    }
 }
