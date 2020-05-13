@@ -32,8 +32,17 @@
         </li>
     </ul>
     <h4>Manage Courses</h4>
-    <ul class="list-group">
-        <li class="list-group-item">Courses</li>
+    <ul class="list-inline">
+        <li class="list-group-item">
+            <form th:action="@{/admin/course}" method="get">
+                <button class="btn btn-md" type="Submit">Add Course</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/admin/courses}" method="get">
+                <button class="btn btn-md" type="Submit">View Courses</button>
+            </form>
+        </li>
     </ul>
     <h4>Manage Blocks</h4>
     <ul class="list-inline">

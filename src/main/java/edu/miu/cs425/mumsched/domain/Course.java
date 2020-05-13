@@ -26,11 +26,13 @@ public class Course {
     private String courseTitle;
 
     @NotEmpty(message = "*Please provide a course Course Description")
+    @Lob
     private String courseDescription;
     @ManyToOne
     private Course prerequisites;
     private Integer creditHour;
-
+    @Transient
+    private String prerequisit;
     public long getId() {
         return id;
     }
@@ -77,5 +79,13 @@ public class Course {
 
     public void setCreditHour(Integer creditHour) {
         this.creditHour = creditHour;
+    }
+
+    public String getPrerequisit() {
+        return prerequisit;
+    }
+
+    public void setPrerequisit(String prerequisit) {
+        this.prerequisit = prerequisit;
     }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta  http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
+    <title>Entries</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1>List of Courses!</h1>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+<div class="col-lg-6 col-sm-6 col-md-6">
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Course Number</th>
+            <th scope="col">Course Title</th>
+            <th scope="col">Course Description</th>
+            <th scope="col">Credit Hour</th>
+            <th scope="col">Prerequisites</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry:${entryList}">
+            <th scope="row"><span th:text="${entry.entryID}"></span></th>
+            <td><span th:text="${entry.entryName}"></span></td>
+            <td><span th:text="${entry.FPPNum}"></span></td>
+            <td><span th:text="${entry.MPPNum}"></span></td>
+            <td><span th:text="${entry.startDate}"></span></td>
+            <td><span th:text="${entry.endDate}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+    <form method="get" action="/admin/entry">
+        <button type="submit">Add Another Entry</button>
+    </form>
+</div>
+
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+</body>
+</html>
