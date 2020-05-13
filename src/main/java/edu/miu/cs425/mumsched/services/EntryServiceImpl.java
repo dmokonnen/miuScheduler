@@ -21,6 +21,11 @@ public class EntryServiceImpl implements EntryService {
         entryDao.save(entry);
         return;
     }
+    @Override
+    public void delete(Entry entry) {
+        entryDao.delete(entry);
+        return;
+    }
 
     @Override
     public Entry getEntryByEntryID(long entryId) {

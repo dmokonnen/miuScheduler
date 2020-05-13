@@ -20,7 +20,11 @@ public class BlockServiceImp implements BlockService{
         blockDao.save(block);
         return;
     }
-
+    @Override
+    public void delete(Block block) {
+        blockDao.delete(block);
+        return;
+    }
     @Override
     public Block getBlockByBlockID(long blockId) {
         return blockDao.findBlockByBlockID(blockId);

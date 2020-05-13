@@ -5,6 +5,7 @@
     <title>Entries</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -22,6 +23,11 @@
 
 </div>
 <div class="col-lg-6 col-sm-6 col-md-6">
+    <form method="get" action="/admin/entry">
+        <button class="btn btn-primary fas fa-user-plus ml-2"  type="submit">Add Another Entry</button>
+        <a href="/admin/home" class="btn btn-primary"><span
+                class="fas fa-user-plus ml-2"> Home</span></a>
+    </form>
     <table class="table table-hover table-bordered">
         <thead>
         <tr>
@@ -31,6 +37,8 @@
             <th scope="col">MPPNum</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -41,12 +49,13 @@
             <td><span th:text="${entry.MPPNum}"></span></td>
             <td><span th:text="${entry.startDate}"></span></td>
             <td><span th:text="${entry.endDate}"></span></td>
+            <td> <a th:href="@{/admin/editentry/{id} (id=${entry.entryID})}"  class="btn btn-primary" ><i class="fas fa-user-edit ml-2"></i> </a></td>
+            <td> <a th:href="@{/admin/deleteentry/{id} (id=${entry.entryID})}"  class="btn btn-primary" ><i class="fas fa-user-times ml-2"></i> </a></td>
+
         </tr>
         </tbody>
     </table>
-    <form method="get" action="/admin/entry">
-        <button type="submit">Add Another Entry</button>
-    </form>
+
 </div>
 
 <div class="col-lg-3 col-sm-3 col-md-3">

@@ -10,4 +10,5 @@ public interface EntryService {
     Entry getEntryByEntryID(long entryId);
     Entry getEntryByEntryName(String entryName);
     List<Entry> getAllEntry();
+    void delete(Entry entry);
 }

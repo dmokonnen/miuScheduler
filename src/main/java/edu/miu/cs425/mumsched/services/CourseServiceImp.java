@@ -1,6 +1,7 @@
 package edu.miu.cs425.mumsched.services;
 
 import edu.miu.cs425.mumsched.dao.CourseRepository;
+import edu.miu.cs425.mumsched.domain.Block;
 import edu.miu.cs425.mumsched.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,11 @@ import java.util.List;
 public class CourseServiceImp implements CourseService{
     @Autowired
     CourseRepository courseRepository;
+    @Override
+    public void delete(Course course) {
+        courseRepository.delete(course);
+        return;
+    }
     @Override
     public Course findCourseByCourseNumber(String courseNumber) {
         return courseRepository.findCourseByCourseNumber(courseNumber);

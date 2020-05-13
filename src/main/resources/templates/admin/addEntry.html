@@ -27,22 +27,24 @@
             <fieldset>
                 <legend>Add New Entry</legend>
                 <p>
-                    <label for="entryName">Entry Name:</label><input id="entryName" type="text" th:field="*{entryName}"/>
+                    <label for="entryName">Entry Name:</label><input class="form-control" id="entryName" type="text" th:field="*{entryName}"/>
                 </p>
                 <p>
-                    <label for="FPPNum">FPP Number:</label> <input id="FPPNum" type="text" th:field="*{FPPNum}"/>
+                    <label for="FPPNum">FPP Number:</label> <input class="form-control" id="FPPNum" type="text" th:field="*{FPPNum}"/>
                 </p>
                 <p>
-                    <label for="MPPNum">MPP Number:</label> <input id="MPPNum" type="text" th:field="*{MPPNum}"/>
+                    <label for="MPPNum">MPP Number:</label> <input class="form-control" id="MPPNum" type="text" th:field="*{MPPNum}"/>
                 </p>
                 <p>
-                    <label for="startDate">Start Date:</label> <input id="startDate" type="date" th:field="*{startDate}"/>
+                    <label for="startDate">Start Date:</label> <input class="form-control" id="startDate" type="date" th:field="*{startDate}"/>
                 </p>
                 <p>
-                    <label for="endDate">End Date:</label> <input id="endDate" type="date" th:field="*{endDate}"/>
+                    <label for="endDate">End Date:</label> <input class="form-control" id="endDate" type="date" th:field="*{endDate}"/>
                 </p>
                 <p>
-                    <input id="btnAdd2" type="submit" value = "Add"/>
+                    <input id="btnAdd2" type="submit" class="btn btn-primary" value = "Add"/>
+                    <a href="/admin/entries" class="btn btn-primary"><span
+                            class="fas fa-user-plus ml-2"> Back</span></a>
                 </p>
             </fieldset>
         </form>

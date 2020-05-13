@@ -7,11 +7,10 @@ import edu.miu.cs425.mumsched.services.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,4 +49,37 @@ public class BlockController {
         model.addAttribute("blocks",blocks);
         return "admin/blocklist";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") long id, Model model) {
+
+        Block block = blockService.getBlockByBlockID(id);
+        //.orElseThrow(()-> new IllegalArgumentException("Invalid student Id:" + id));
+        model.addAttribute("block",block);
+        return "admin/update-block";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateBlock(@PathVariable("id") long id, @Valid Block block, BindingResult result,
+                              Model model) {
+        if (result.hasErrors()) {
+            block.setBlockID(id);
+            return "update-block";
+        }
+        block.setBlockID(id);
+        blockService.save(block);
+        model.addAttribute("block", blockService.getAllBlock());
+        return "redirect:/admin/blocks";
+    }
+    @GetMapping("delete/{id}")
+    public String deleteBlock(@PathVariable("id") long id, Model model) {
+        Block block = blockService.getBlockByBlockID(id);
+                //.orElseThrow(()-> new IllegalArgumentException("Invalid student Id:" + id));
+
+        blockService.delete(block);
+        model.addAttribute("block", blockService.getAllBlock());
+        return "redirect:/admin/blocks";
+    }
+
+
 }

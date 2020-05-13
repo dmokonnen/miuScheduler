@@ -28,28 +28,32 @@
             <p>
                 <label for="courseList">Select Prerequisites: </label>
                 <select th:field="*{prerequisit}">
-                    <option th:each="prerequisit: ${courseNumberList}" th:value="${prerequisit}" th:text="${prerequisit}">
+                    <option class="form-control" th:each="prerequisit: ${courseNumberList}" th:value="${prerequisit}" th:text="${prerequisit}">
                     </option>
                 </select>
             </p>
             <p>
                 <label for = "courseTitle">Course Title:</label>
-                <input id="courseTitle" type="text" th:field="*{courseTitle}"/>
+                <input class="form-control" id="courseTitle" type="text" th:field="*{courseTitle}"/>
             </p>
             <p>
                 <label for = "courseNumber">Course Number:</label>
-                <input id="courseNumber" type="text" th:field="*{courseNumber}"/>
+                <input class="form-control" id="courseNumber" type="text" th:field="*{courseNumber}"/>
             </p>
             <p>
                 <label for = "courseDescription">Course Description:</label>
-                <textarea id="courseDescription" type="text" th:field="*{courseDescription}" rows="4"></textarea>
+                <textarea class="form-control" id="courseDescription" type="text" th:field="*{courseDescription}"></textarea>
             </p>
             <p>
                 <label for = "creditHour">Credit Hour:</label>
-                <input id="creditHour" type="number" th:field="*{creditHour}"/>
+                <input class="form-control" id="creditHour" type="number" th:field="*{creditHour}"/>
             </p>
             <p>
-                <input id="btnAdd" type="submit" value = "Add Course"/>
+
+                <input id="btnAdd" type="submit" class="btn btn-primary" value = "Add"/>
+                <a href="/admin/courses" class="btn btn-primary"><span
+                        class="fas fa-user-plus ml-2"> Back</span></a>
+
             </p>
         </fieldset>
     </form>

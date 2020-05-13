@@ -32,5 +32,4 @@ public class Block {
     @JoinColumn
     private Entry entry;
 
-
 }
