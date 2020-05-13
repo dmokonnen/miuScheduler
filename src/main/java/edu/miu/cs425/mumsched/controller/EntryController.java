@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Demisew Mokonnen
- * @2020
- */
 @Controller
 @RequestMapping("/admin")
 public class EntryController {

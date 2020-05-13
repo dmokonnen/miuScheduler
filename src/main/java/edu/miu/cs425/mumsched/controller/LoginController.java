@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @author Demisew Mokonnen
+ * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
  * @2020
  */
 @Controller

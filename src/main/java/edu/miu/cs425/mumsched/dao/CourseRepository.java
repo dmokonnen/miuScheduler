@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author Demisew Mokonnen
+ * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
  * @2020
  */
 @Repository

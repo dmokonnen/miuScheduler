@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 /**
- * @author Demisew Mokonnen
+ * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
  * @2020
  */
 

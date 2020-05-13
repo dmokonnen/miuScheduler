@@ -26,22 +26,22 @@
             <th scope="col">Course Title</th>
             <th scope="col">Course Description</th>
             <th scope="col">Credit Hour</th>
-            <th scope="col">Prerequisites</th>
+<!--            <th scope="col">Prerequisites</th>-->
         </tr>
         </thead>
         <tbody>
-        <tr th:each="entry:${entryList}">
-            <th scope="row"><span th:text="${entry.entryID}"></span></th>
-            <td><span th:text="${entry.entryName}"></span></td>
-            <td><span th:text="${entry.FPPNum}"></span></td>
-            <td><span th:text="${entry.MPPNum}"></span></td>
-            <td><span th:text="${entry.startDate}"></span></td>
-            <td><span th:text="${entry.endDate}"></span></td>
+        <tr th:each="course:${courses}">
+            <th scope="row"><span th:text="${course.id}"></span></th>
+            <td><span th:text="${course.courseNumber}"></span></td>
+            <td><span th:text="${course.courseTitle}"></span></td>
+            <td><span th:text="${course.courseDescription}"></span></td>
+            <td><span th:text="${course.creditHour}"></span></td>
+<!--            <td th:if=""><span th:text="${course.prerequisites.courseNumber}"></span></td>-->
         </tr>
         </tbody>
     </table>
-    <form method="get" action="/admin/entry">
-        <button type="submit">Add Another Entry</button>
+    <form method="get" action="/admin/course">
+        <button type="submit">Add Another Course</button>
     </form>
 </div>
 

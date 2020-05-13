@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 /**
- * @author Demisew Mokonnen
+ * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
  * @2020
  */
 @Controller

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 /**
- * @author Demisew Mokonnen
+ * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
  * @2020
  */
 @Entity

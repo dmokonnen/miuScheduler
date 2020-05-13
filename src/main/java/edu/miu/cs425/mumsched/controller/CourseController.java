@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Demisew Mokonnen
+ * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
  * @2020
  */
 @Controller
@@ -29,7 +29,7 @@ public class CourseController {
 //    @Autowired
 //    EntryService entryService;
     @GetMapping("/course")
-    public String blockRegForm(@ModelAttribute("newCourse") Course course, Model model){
+    public String courseForm(@ModelAttribute("newCourse") Course course, Model model){
         List<String> courseNumberList = new ArrayList<>();
         List<Course>  courseList = new ArrayList<>(courseService.getAllCourses());
         for (Course course1: courseList)
@@ -39,7 +39,7 @@ public class CourseController {
         return "/admin/addCourses";
     }
     @PostMapping("/addNewCourse")
-    public String registerNewBlock(@ModelAttribute("newCourse") Course course, Model model){
+    public String addNewCourse(@ModelAttribute("newCourse") Course course, Model model){
 //        Entry entry=entryService.getEntryByEntryName(block.getEntryName());
         Course course1 = courseService.findCourseByCourseNumber(course.getPrerequisit());
         if(course1!=null)
@@ -49,7 +49,7 @@ public class CourseController {
         return "redirect:/admin/course";
     }
     @GetMapping("/courses")
-    public String success(@ModelAttribute Course course, Model model){
+    public String courseList(@ModelAttribute Course course, Model model){
         List<Course> courses = courseService.getAllCourses();
         model.addAttribute("courses",courses);
         return "admin/courselist";
