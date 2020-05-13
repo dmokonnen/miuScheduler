@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Block Form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Update Block</h1>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+    <form action="#" th:action="@{/admin/update/{id}(id=${block.blockID})}" th:object="${block}" method="post">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{blockName}" class="form-control" id="blockName" placeholder="blockName"> <span th:if="${#fields.hasErrors('blockName')}" th:errors="*{blockName}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="email" class="col-form-label">Email</label> <input type="text" th:field="*{startDate}" class="form-control" id="startDate" placeholder="startDate"> <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="phoneNo" class="col-form-label">Phone No</label> <input type="text" th:field="*{endDate}" class="form-control" id="endDate" placeholder="endDate"> <span th:if="${#fields.hasErrors('endDate')}" th:errors="endDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-8">
+                <input type="submit" class="btn btn-primary" value="Update Block">
+                <a href="/admin/blocks" class="btn btn-primary"><span
+                        class="fas fa-user-plus ml-2"> Back</span></a>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
+</body>
+</html>
