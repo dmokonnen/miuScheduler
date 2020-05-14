@@ -30,15 +30,8 @@ public class Student{
     //enrolled sections
     private Set<Section> sections;
     //student entry
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
     private Entry entry;
-    //student study track
-//    @Enumerated(EnumType.STRING)
-//    private StudyTrack studyTrack;
-//    //student work track
-//    @Enumerated(EnumType.STRING)
-//    private WorkTrack workTrack;
-    //student account
-//    @OneToOne
-//    private User user;
+
 }
