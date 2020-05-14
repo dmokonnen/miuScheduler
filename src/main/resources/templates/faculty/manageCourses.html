@@ -16,7 +16,18 @@
     </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
-
+    <ul class="list-group">
+        <li  class="list-group-item">
+            <form th:action="@{/faculty/courses}" method="get">
+                <button class="btn btn-md" type="Submit">Select Course Preferences</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/profile}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Profile</button>
+            </form>
+        </li>
+    </ul>
 </div>
 <div class="col-lg-6 col-sm-6 col-md-6">
     <div class="row">

@@ -5,6 +5,7 @@ import edu.miu.cs425.mumsched.domain.Faculty;
 import edu.miu.cs425.mumsched.services.CourseService;
 import edu.miu.cs425.mumsched.services.EntryService;
 import edu.miu.cs425.mumsched.services.FacultyService;
+import jdk.nashorn.internal.runtime.Specialization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -32,6 +34,27 @@ public class FacultyController {
     @Autowired
     EntryService entryService;
 
+    @GetMapping("/profileUpdate")
+    public String updateFacultyProfile(Model model) {
+        Faculty faculty = getLoggedInFaculty();
+        model.addAttribute("faculty", faculty);
+        List<String> specializations = Arrays.asList("DATA SCIENCE", "WEB APPLICATIONS", "SOFTWARE DESIGN");
+        model.addAttribute("specializations", specializations);
+        return "faculty/profileUpdate";
+    }
+
+    @PostMapping("/profileUpdate")
+    public String saveFacultyProfile(@ModelAttribute("faculty") Faculty faculty){
+        facultyService.save(faculty);
+        return "redirect:/faculty/profile";
+    }
+    @GetMapping("/profile")
+    public String displayFacultyProfile(Model model) {
+        Faculty faculty = getLoggedInFaculty();
+        System.out.println("this this \n \n "+faculty);
+        model.addAttribute("faculty", faculty);
+        return "faculty/profileManage";
+    }
     @GetMapping("/courses")
     public String displayCourses(Model model){
         List<Course> courses = courseService.getAllCourses();

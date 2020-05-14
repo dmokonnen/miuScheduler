@@ -7,7 +7,6 @@ import edu.miu.cs425.mumsched.services.FacultyService;
 import edu.miu.cs425.mumsched.services.StudentService;
 import edu.miu.cs425.mumsched.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -65,7 +64,7 @@ public class AdminUserProfileController {
             student.setEmail(user.getEmail());
             student.setFirstName(user.getName());
             student.setLastName(user.getLastName());
-            student.setUser(user);
+//            student.setUser(user);
 //            faculty.setFacultyID(universityId++);
             studentService.save(student);
             modelAndView.addObject("successMessage", "User has been registered successfully");
@@ -101,7 +100,7 @@ public class AdminUserProfileController {
             faculty.setEmail(user.getEmail());
             faculty.setFirstName(user.getName());
             faculty.setLastName(user.getLastName());
-            faculty.setUser(user);
+//            faculty.setUser(user);
 //            faculty.setFacultyID(universityId++);
             facultyService.save(faculty);
             modelAndView.addObject("successMessage", "User has been registered successfully");

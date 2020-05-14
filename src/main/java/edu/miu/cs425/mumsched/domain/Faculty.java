@@ -32,8 +32,8 @@ public class Faculty{
 //    private Gender gender;
     @Column(unique = true)
     private String email;
-    @OneToOne
-    private User user;
+//    @OneToOne
+//    private User user;
     @OneToMany(mappedBy = "faculty")
     private Set<Section> sections;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -41,6 +41,8 @@ public class Faculty{
             joinColumns = {@JoinColumn(name = "faculty_id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id")})
     private Set<Course> preferredCourses;
+
+    private String specialization;
 
     public Faculty() {
         this.preferredCourses=new HashSet<>();

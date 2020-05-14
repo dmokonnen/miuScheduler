@@ -39,6 +39,6 @@ public class Student{
 //    @Enumerated(EnumType.STRING)
 //    private WorkTrack workTrack;
     //student account
-    @OneToOne
-    private User user;
+//    @OneToOne
+//    private User user;
 }
