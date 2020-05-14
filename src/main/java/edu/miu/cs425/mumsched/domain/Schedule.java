@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -38,5 +39,63 @@ public class Schedule implements Serializable {
     public void setEntry(Entry entry) {
         entry.setSchedule(this);
         this.entry = entry;
+    }
+    public Schedule generate(List<Course> courseList) throws RuntimeException {
+        if(this.getEntry()==null)
+            return null;
+//            throw new EntryException("The entry is not valid!");
+        if (this.getEntry().getFPPNum()+this.getEntry().getMPPNum() <= 0)
+            return null;
+//            throw new EntryException("The MPP and FPP projection is incorrect, edit the entry details to proceed");
+        //this method will check if I got enough block,and will throw a runtime exception if not
+//        this.entry.checkBlockRequirements();
+        //let's say in which order we want to offer the courses
+        List<Course> courses=Course.orderCourses(courseList);
+        Course fpp=findFPPorMPP("CS390",courses);
+        courses.remove(fpp);
+        Course mpp=findFPPorMPP("CS401",courses);
+        courses.remove(mpp);
+        for(Block block:this.getEntry().getBlocksList()){
+            block.createSections(fpp,mpp,courses,this.getEntry());
+        }
+        this.setGeneratedDate(new Date(System.currentTimeMillis()));
+        this.setStatus(ScheduleStatus.DRAFT);
+        return this;
+    }
+
+    public void addSection(Section section) {
+        if (section != null) {
+            sections.add(section);
+            section.setSchedule(this);
+        }
+    }
+
+    public void removeSection(Section section) {
+        if (section != null) {
+            sections.remove(section);
+            section.setSchedule(null);
+        }
+    }
+
+
+//    public void onApproved() {
+//        entry.checkBlockRequirements();
+//
+//    }
+    private Course  findFPPorMPP(String desc,List<Course> courses)throws RuntimeException{
+        for(Course course:courses){
+            if(course.getCourseNumber().equalsIgnoreCase(desc)) {
+                return course;
+            }
+        }
+        return null;
+//        throw new CourseNotFoundException("Some blocks require FPP or MPP section, But No such courses are found in database");
+
+    }
+    public void checkIfEachSectionHasFaculty()throws RuntimeException{
+        for(Section sect:this.getSections()){
+            if(sect.getFaculty()==null)
+                throw new RuntimeException("Some section, in the schedule don't have assigned Faculty");
+        }
     }
 }

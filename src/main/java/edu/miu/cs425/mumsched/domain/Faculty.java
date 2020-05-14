@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
@@ -48,10 +49,37 @@ public class Faculty{
             inverseJoinColumns = {@JoinColumn(name = "block_id")})
     private Set<Block> blocks;
     @Transient
+    private Set<Block> lockedBlocks;
+    @Transient
     private List<String> blockSelections;
+
     private String specialization;
 
     public Faculty() {
         this.preferredCourses=new HashSet<>();
     }
+
+
+    public boolean isAvailable(Block block) {
+        List<Block> blocks = this.getBlocks().stream().filter(b1->b1.getBlockName().contains(block.getBlockName())).collect(Collectors.toList());
+
+        if(this.lockedBlocks.contains(block))
+            return false;
+        return blocks.size() == 0;
+    }
+
+    public void addSection(Section section){
+        if(section!=null){
+            section.setFaculty(this);
+            this.sections.add(section);
+        }
+    }
+
+    public void addLockBlock(Block block){
+        if(block!=null){
+            this.lockedBlocks.add(block);
+        }
+    }
+
+
 }
