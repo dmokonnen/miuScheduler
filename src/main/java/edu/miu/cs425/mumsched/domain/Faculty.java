@@ -16,7 +16,8 @@ import java.util.Set;
  * @2020
  */
 
-@Data
+@Getter
+@Setter
 //@NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -41,7 +42,13 @@ public class Faculty{
             joinColumns = {@JoinColumn(name = "faculty_id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id")})
     private Set<Course> preferredCourses;
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "faculty_blocks",
+            joinColumns = {@JoinColumn(name = "faculty_id")},
+            inverseJoinColumns = {@JoinColumn(name = "block_id")})
+    private Set<Block> blocks;
+    @Transient
+    private List<String> blockSelections;
     private String specialization;
 
     public Faculty() {

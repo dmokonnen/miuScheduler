@@ -17,6 +17,10 @@
         <h2>Welcome to MIU Faculty Page!</h2>
         <h3>Manage Profile!</h3>
     </div>
+    <div class="container">
+        <br>
+        <a href="/faculty/home">Home</a>
+    </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
     <ul class="list-group">
@@ -28,6 +32,11 @@
         <li class="list-group-item">
             <form th:action="@{/faculty/profile}" method="get">
                 <button class="btn btn-md" type="Submit">Manage Profile</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/block}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Block</button>
             </form>
         </li>
     </ul>
@@ -99,15 +108,15 @@
 <!--                            </div>-->
 <!--                        </div>-->
 
-<!--                        <div class="form-group">-->
-<!--                            <label class="col-sm-3 control-label">Unwanted Blocks: </label>-->
-<!--                            <div class="col-sm-9">-->
-<!--                                <p class="form-control-static">-->
-<!--                                <li th:each="unwantedBlock : ${faculty.unwantedBlocks}" th:text="${unwantedBlock}">-->
-<!--                                </li>-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Selected Blocks: </label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                <li th:each="block : ${faculty.blocks}" th:text="${block.blockName}">
+                                </li>
+                                </p>
+                            </div>
+                        </div>
 
                         <div class="text-center">
                             <a th:href="@{'/faculty/profileUpdate'}" class="btn btn-success">Edit</a>

@@ -16,6 +16,10 @@
     <div class="container">
         <h1>Welcome to MIU Faculty Page!</h1>
     </div>
+    <div class="container">
+        <br>
+        <a href="/faculty/home">Home</a>
+    </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
 
@@ -28,6 +32,11 @@
         <li class="list-group-item">
             <form th:action="@{/faculty/profile}" method="get">
                 <button class="btn btn-md" type="Submit">Manage Profile</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/block}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Block</button>
             </form>
         </li>
     </ul>

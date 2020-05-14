@@ -14,6 +14,10 @@
         <h2>Welcome to MIU Faculty Page! </h2>
         <h3>Select your Course Preference </h3>
     </div>
+    <div class="container">
+        <br>
+        <a href="/faculty/home">Home</a>
+    </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
     <ul class="list-group">
@@ -25,6 +29,11 @@
         <li class="list-group-item">
             <form th:action="@{/faculty/profile}" method="get">
                 <button class="btn btn-md" type="Submit">Manage Profile</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/block}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Block</button>
             </form>
         </li>
     </ul>

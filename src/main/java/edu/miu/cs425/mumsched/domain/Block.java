@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.util.Set;
 
 /**
  * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
@@ -31,5 +32,7 @@ public class Block {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Entry entry;
+    @ManyToMany(mappedBy = "blocks")
+    private Set<Faculty> faculties;
 
 }

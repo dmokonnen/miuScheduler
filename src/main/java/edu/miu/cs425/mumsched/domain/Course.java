@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 /**
  * @author Demisew Mokonnen, Dereje Enkossa, Tsegaye Beza, Bekalu Assegid
@@ -33,6 +34,8 @@ public class Course {
     private String courseDescription;
     @ManyToOne
     private Course prerequisites;
+    @ManyToMany(mappedBy = "preferredCourses")
+    private Set<Faculty> faculties;
     private Integer creditHour;
     @Transient
     private String prerequisit;
