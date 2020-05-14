@@ -1,10 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Faculty Manage BLOCKS</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="jumbotron">
+    <div class="container">
+        <h2>Welcome to MIU Faculty Page! </h2>
+        <h3>MANAGE BLOCKS </h3>
+    </div>
+    <div class="container">
+        <br>
+        <a href="/faculty/home">Home</a>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-md-3">
+    <ul class="list-group">
+        <li  class="list-group-item">
+            <form th:action="@{/faculty/courses}" method="get">
+                <button class="btn btn-md" type="Submit">Select Course Preferences</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/profile}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Profile</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/block}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Block</button>
+            </form>
+        </li>
+    </ul>
+</div>
+<div class="col-lg-6 col-sm-6 col-md-6">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Select Blocks
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <form th:action="@{/faculty/addBlock}" method="post" th:object="${faculty}">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="block" class="col-sm-3">The blocks you have not selected yet</label>
+                                <div class="col-sm-9">
+                                    <select multiple class="form-control" id="block" th:field="*{blockSelections}">
+                                        <option th:each="monthBlock : ${monthBlockList}"
+                                                th:text="${monthBlock}" th:value="${monthBlock}">
+                                        </option>
+                                    </select>
+<!--                                    <select multiple class="form-control" id="block" th:field="*{unwantedBlocks}">-->
+<!--                                        <option th:each="monthBlock : ${monthBlockList}"-->
+<!--                                                th:text="${monthBlock}" th:value="${monthBlock}">-->
+<!--                                        </option>-->
+<!--                                    </select>-->
+                                    <p class="help-block"></p>
+                                </div>
+                            </div>
 
+                            <div class="text-center">
+                                <input id="btnAdd" class="btn btn-primary" type="submit" value="Add" />
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-body">
+                    <h4>List of Blocks you have selected</h4>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                        <tr>
+                            <th>Blocks</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="block  : ${blocks}" >
+                            <tr class="odd gradeX">
+                                <td th:text="${block.blockName}"></td>
+                                <td>
+                                    <a th:href="@{'/faculty/blockDelete/' + ${block.blockID}}" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
+                </div>
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+
+<div class="col-lg-3 col-sm-3 col-md-3">
+
+</div>
 </body>
 </html>

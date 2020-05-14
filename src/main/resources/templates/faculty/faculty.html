@@ -16,19 +16,27 @@
     <div class="container">
         <h1>Welcome to MIU Faculty Page!</h1>
     </div>
+    <div class="container">
+        <br>
+        <a href="/faculty/home">Home</a>
+    </div>
 </div>
 <div class="col-lg-3 col-sm-3 col-md-3">
 
-    <h4>Manage Users</h4>
-    <ul class="list-inline">
+    <ul class="list-group">
         <li  class="list-group-item">
             <form th:action="@{/faculty/courses}" method="get">
-                <button class="btn btn-md" type="Submit">view courses</button>
+                <button class="btn btn-md" type="Submit">Select Course Preferences</button>
             </form>
         </li>
         <li class="list-group-item">
-            <form th:action="@{/admin/addstudent}" method="get">
-                <button class="btn btn-md" type="Submit">view</button>
+            <form th:action="@{/faculty/profile}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Profile</button>
+            </form>
+        </li>
+        <li class="list-group-item">
+            <form th:action="@{/faculty/block}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Block</button>
             </form>
         </li>
     </ul>

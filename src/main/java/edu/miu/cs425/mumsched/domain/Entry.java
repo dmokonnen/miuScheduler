@@ -31,8 +31,8 @@ public class Entry {
     private Set<Block> blocksList = new HashSet<>();
     @OneToOne
     private Schedule schedule;
-//    @OneToMany
-//    private List<Student> students= new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true,mappedBy = "entry")
+    private List<Student> students= new ArrayList<>();
     public Entry() {
     }
     public boolean addBlock(Block block) {
@@ -51,6 +51,22 @@ public class Entry {
     }
 
     //setters and getters
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 
     public long getEntryID() {
         return entryID;
