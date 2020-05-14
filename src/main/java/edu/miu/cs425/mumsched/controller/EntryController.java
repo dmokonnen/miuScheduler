@@ -1,8 +1,6 @@
 package edu.miu.cs425.mumsched.controller;
 
-import edu.miu.cs425.mumsched.domain.Course;
 import edu.miu.cs425.mumsched.domain.Entry;
-import edu.miu.cs425.mumsched.domain.Student;
 import edu.miu.cs425.mumsched.services.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
