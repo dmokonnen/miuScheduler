@@ -11,4 +11,5 @@ public interface EntryService {
     Entry getEntryByEntryName(String entryName);
     List<Entry> getAllEntry();
     void delete(Entry entry);
+    List<Entry> findEntryWithoutSchedule();
 }

@@ -28,6 +28,11 @@ public class EntryServiceImpl implements EntryService {
     }
 
     @Override
+    public List<Entry> findEntryWithoutSchedule() {
+        return entryDao.findEntryWithoutSchedule();
+    }
+
+    @Override
     public Entry getEntryByEntryID(long entryId) {
 
         return entryDao.findEntryByEntryID(entryId);
