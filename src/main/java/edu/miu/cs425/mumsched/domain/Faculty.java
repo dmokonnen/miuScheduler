@@ -1,12 +1,9 @@
 package edu.miu.cs425.mumsched.domain;
 
+import edu.miu.cs425.mumsched.registrationSubSystem.domain.Section;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

@@ -5,6 +5,7 @@ import edu.miu.cs425.mumsched.services.CourseService;
 import edu.miu.cs425.mumsched.services.EntryService;
 import edu.miu.cs425.mumsched.services.ScheduleService;
 import edu.miu.cs425.mumsched.utilities.ScheduleStatus;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

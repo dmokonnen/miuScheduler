@@ -1,5 +1,6 @@
-package edu.miu.cs425.mumsched.domain;
+package edu.miu.cs425.mumsched.registrationSubSystem.domain;
 
+import edu.miu.cs425.mumsched.domain.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

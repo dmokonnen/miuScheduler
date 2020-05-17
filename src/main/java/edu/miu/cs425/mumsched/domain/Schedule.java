@@ -1,9 +1,9 @@
 package edu.miu.cs425.mumsched.domain;
 
+import edu.miu.cs425.mumsched.registrationSubSystem.domain.Section;
 import edu.miu.cs425.mumsched.utilities.ScheduleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;

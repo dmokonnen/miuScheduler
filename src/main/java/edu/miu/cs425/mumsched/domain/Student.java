@@ -1,5 +1,6 @@
 package edu.miu.cs425.mumsched.domain;
 
+import edu.miu.cs425.mumsched.registrationSubSystem.domain.Section;
 import lombok.*;
 
 import javax.persistence.*;

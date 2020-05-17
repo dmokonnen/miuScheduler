@@ -14,70 +14,23 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Welcome to MIU Admin Page!</h1>
+        <h2>Welcome to MIU Admin Page!</h2>
+        <h3>Manage Schedule!</h3>
     </div>
 
 </div>
 <div class="col-lg-2 col-sm-2 col-md-2">
-    <h4>Manage Schedules</h4>
     <ul class="list-inline">
         <li  class="list-group-item">
-            <form th:action="@{/admin/addfaculty}" method="get">
-                <button class="btn btn-md" type="Submit">Add Faculties</button>
+            <form th:action="@{/admin/createSchedule}" method="get">
+                <button class="btn btn-md" type="Submit">Create Schedule</button>
             </form>
         </li>
         <li class="list-group-item">
-            <form th:action="@{/admin/addstudent}" method="get">
-                <button class="btn btn-md" type="Submit">Add Students</button>
+            <form th:action="@{/admin/manageSchedule}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Schedule</button>
             </form>
         </li>
-    </ul>
-    <h4>Manage Courses</h4>
-    <ul class="list-inline">
-        <!--        <li class="list-group-item">-->
-        <!--            <form th:action="@{/admin/course}" method="get">-->
-        <!--                <button class="btn btn-md" type="Submit">Add Course</button>-->
-        <!--            </form>-->
-        <!--        </li>-->
-        <li class="list-group-item">
-            <form th:action="@{/admin/courses}" method="get">
-                <button class="btn btn-md" type="Submit">Manage Courses</button>
-            </form>
-        </li>
-    </ul>
-    <h4>Manage Blocks</h4>
-    <ul class="list-inline">
-        <!--        <li class="list-group-item">-->
-        <!--            <form th:action="@{/admin/block}" method="get">-->
-        <!--                <button class="btn btn-md" type="Submit">Add Block</button>-->
-        <!--            </form>-->
-        <!--        </li>-->
-        <li class="list-group-item">
-            <form th:action="@{/admin/blocks}" method="get">
-                <button class="btn btn-md" type="Submit">Manage Blocks</button>
-            </form>
-        </li>
-    </ul>
-    <h4>Manage Entries</h4>
-    <ul class="list-inline">
-        <!--        <li class="list-group-item">-->
-        <!--            <form th:action="@{/admin/entry}" method="get">-->
-        <!--                <button class="btn btn-md" type="Submit">Add Entry</button>-->
-        <!--            </form>-->
-        <!--        </li>-->
-        <li class="list-group-item">
-            <form th:action="@{/admin/entries}" method="get">
-                <button class="btn btn-md" type="Submit">Manage Entries</button>
-            </form>
-        </li>
-    </ul>
-    <h4>Manage Sections</h4>
-    <ul class="list-group">
-        <li class="list-group-item">Sections</li>
-    </ul>
-    <h4>Generate Report</h4>
-    <ul class="list-group">
-        <li class="list-group-item">Reports</li>
     </ul>
 </div>
 <div class="col-lg-7 col-md-7 col-sm-7">
@@ -117,9 +70,9 @@
                                     <td>
                                         <a th:href="@{'/admin/editSchedule/' + ${schedule.id}}" class="btn btn-success btn-sm">Edit</a>&nbsp;
                                         <a th:if="${schedule.status.toString().equals('DRAFT')}" th:href="@{'/schedule/approved/' + ${schedule.id}}" class="btn btn-success btn-sm">Approved</a>&nbsp;
-                                        <a th:if="${schedule.status.toString().equals('APPROVED')}" th:href="@{'/schedule/unapproved/' + ${schedule.id}}" class="btn btn-success btn-sm">
-                                            <a th:href="@{'/schedule/delete/' +${schedule.id}}" class="btn btn-danger btn-sm" >Delete</a>&nbsp;
-                                            <a th:href="@{'/schedule/details/' + ${schedule.id}}" class="btn btn-success btn-sm">Details</a>
+                                        <a th:if="${schedule.status.toString().equals('APPROVED')}" th:href="@{'/schedule/unapproved/' + ${schedule.id}}" class="btn btn-success btn-sm"></a>
+                                            <a th:href="@{'/admin/deleteSchedule/' +${schedule.id}}" class="btn btn-danger btn-sm" >Delete</a>&nbsp;
+                                            <a th:href="@{'/admin/scheduleDetails/' + ${schedule.id}}" class="btn btn-success btn-sm">Details</a>
                                     </td>
                                 </tr>
                             </th:block>
