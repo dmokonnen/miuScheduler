@@ -1,5 +1,7 @@
 package edu.miu.cs425.mumsched.domain;
 
+import edu.miu.cs425.mumsched.registrationSubSystem.domain.RegistrationRecord;
+import edu.miu.cs425.mumsched.registrationSubSystem.domain.Section;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,5 +35,7 @@ public class Student{
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Entry entry;
+    @OneToOne(mappedBy = "student")
+    private RegistrationRecord registrationRecord;
 
 }

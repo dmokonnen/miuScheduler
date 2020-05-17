@@ -60,14 +60,17 @@
     </ul>
     <h4>Manage Entries</h4>
     <ul class="list-inline">
-<!--        <li class="list-group-item">-->
-<!--            <form th:action="@{/admin/entry}" method="get">-->
-<!--                <button class="btn btn-md" type="Submit">Add Entry</button>-->
-<!--            </form>-->
-<!--        </li>-->
         <li class="list-group-item">
             <form th:action="@{/admin/entries}" method="get">
                 <button class="btn btn-md" type="Submit">Manage Entries</button>
+            </form>
+        </li>
+    </ul>
+    <h4>Manage Schedule</h4>
+    <ul class="list-inline">
+        <li class="list-group-item">
+            <form th:action="@{/admin/manageSchedule}" method="get">
+                <button class="btn btn-md" type="Submit">Manage Schedule</button>
             </form>
         </li>
     </ul>

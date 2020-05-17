@@ -1,8 +1,10 @@
-package edu.miu.cs425.mumsched.domain;
+package edu.miu.cs425.mumsched.registrationSubSystem.domain;
 
+import edu.miu.cs425.mumsched.domain.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.mapping.ToOne;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -26,7 +28,7 @@ public class Section {
     @ManyToOne
     private Schedule schedule;
 
-    @OneToOne
+    @ManyToOne
     private Block block;
 
     @ManyToOne(cascade = {CascadeType.PERSIST})

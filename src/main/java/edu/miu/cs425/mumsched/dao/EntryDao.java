@@ -19,4 +19,6 @@ public interface EntryDao extends CrudRepository<Entry,Long> {
     Entry findEntryByEntryName(String entryName);
     @Query("select s from Entry s")
     List<Entry> getAllEntry();
+    @Query("from Entry en where en.schedule.id is null")
+    List<Entry> findEntryWithoutSchedule();
 }
