@@ -76,7 +76,6 @@ public class ScheduleController {
         Schedule schedule= scheduleService.findById(id);
         if(schedule!=null) {
             schedule.setStatus(ScheduleStatus.APPROVED);
-//            schedule.onApproved();
             schedule.checkIfEachSectionHasFaculty();
             scheduleService.saveOrUpdate(schedule);
         }

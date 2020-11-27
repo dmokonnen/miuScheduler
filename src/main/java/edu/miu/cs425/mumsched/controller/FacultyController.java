@@ -94,13 +94,12 @@ public class FacultyController {
     }
     @GetMapping("/block")
     public String displayUnwantedBlocks(Model model) {
-//        List<BlockMonths> monthBlockList = MonthUtil.getMonths();
+
         List<String> monthBlockList=new ArrayList<>(Arrays.asList("JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST",
                 "SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"));
 
 
-//
-//        // to dispaly list of courses preferred by faculty in a table
+ // to dispaly list of courses preferred by faculty in a table
         Faculty faculty = getLoggedInFaculty();
         Set<Block> blocks = faculty.getBlocks();
         if(blocks!=null) {
@@ -122,7 +121,7 @@ public class FacultyController {
         if (faculty != null) {
             for(String bname: faculty.getBlockSelections())
                 connectedFaculty.getBlocks().add(blockService.getBlockByBlockName(bname));
-//                connectedFaculty.getBlocks().addAll(faculty.getUnwantedBlocks());
+
             facultyService.save(connectedFaculty);
         }
 
@@ -132,11 +131,7 @@ public class FacultyController {
     public String deleteUnwantedBlocks(@PathVariable("bId") long bId) {
         Faculty faculty = getLoggedInFaculty();
         Set<Block> blocks = faculty.getBlocks();
-//        for(Block b:blocks){
-//            if(b.getBlockID()==bId){
-//                faculty.getBlocks().remove(b);
-//            }
-//        }
+
         Iterator<Block> it = blocks.iterator();
         while (it.hasNext()) {
             Block block = it.next();
